@@ -1,0 +1,46 @@
+,Nome da classe,Limites,Dados de teste dentro da classe (conteúdo do campo),Dados de teste nos limites (campo de comentários),Classificação e otimização
+Nome,Tamanho do campo nome é de 2-14 caracteres,"2,14",7 caracteres - carolin,"Nos limites: 2-ca; 14-carolineeeeeee
+Fora dos limites: 1-c; 15- carolineeeeeee
+Dentro dos limites: 3-Kar; 13-carolineeeee",
+,Maior que 14 caracteres,15,20 caracteres - Carolineeeeeeeeeeeeee,"No limite: 15-carolineeeeeeee
+Fora do limite: 14-carolineeeeeee
+Dentro do limite: 16-carolineeeeeeeee",
+,Nome com 1 caracter,1,1 caracter - K,,
+,Campo vazio,,"""""",,
+,Nome com espaço,,gnm caroline,,
+,Nome com hífen,,gnm-caroline,,
+,Letras latinas,,caroline,,
+,Letras não latinas,,까롤린,,
+,Números,,87654321,,
+,Símbolos,,@@@@,,
+,,,,,
+,,,,,
+Sobrenome,Tamanho do campo sobrenome é de 2-14 caracteres,"2,14",7 caracteres - gonzaga,"Nos limites: 2-Ol; 14-gonzagaaaaaaa
+Fora dos limites: 1-O; 15- gonzagaaaaaaaa
+Dentro dos limites: 3-Oli; 13-gonzagaaaaaa",
+,Maior que 14 caracteres,15,20 caracteres - Gozagaaaaaaaaaaaaaaa,"No limite: 15-gonzagaaaaaaaa
+Fora do limite: 14-gonzagaaaaaaaa
+Dentro do limite: 16-gonzagaaaaaaaaa",
+,Sobrenome com 1 caracter,1,1 caracter - g,,
+,Campo vazio,,"""""",,
+,Sobrenome com espaço,,Gonzaga Machado,,
+,Sobrenome com hífen,,Gonzaga-Machado,,
+,Letras latinas,,gonzaga,,
+,Letras não latinas,,올리버,,
+,Números,,87654321,,
+,Símbolos,,@@@@,,
+,,,,,
+,,,,,
+Data de nascimento,Data dias,"01.mm.yyyy; (28,29,30 ou 31).mm.yyyy",15.mm.yyyy,"00 mm.yyyy 01mm. yyyy 02.mm.yyyy Fevereiro em ano bissexto: 28 mm.yyyy 29.mm.yyyy 30.mm.yyyy Fevereiro em uma ano não bissexto: 27.mm.yyyy 28.mm.yyyy 29mm.yyyy Meses com 30 dias( Abril, Junho, Setembro e Novembro): 29.mm.yyyy 30.mm.yyyy 31.mm.yyyy Meses com 31 dias( Janeiro,Março, Maio, Julho, Agosto, e Outubro): 30.mm.yyyy 31.mm.yyyy 32.mm.yyyy",
+,Data mês,dd.01.yyyy; dd.12.yyyy,dd.06.yyyy,"Nos limites: dd.01.yyyy; dd.12.yyyy
+Fora do limite: dd.13.yyyy
+Dentro do limte: dd.06.yyyy",
+,Data ano,dd.mm.1880; dd.mm.2006,dd.mm.1920,Nos limites: dd.mm.1880; dd.mm.2006 Fora do limite: dd.mm.1879; dd.mm.2007 Dentro do limte: dd.mm.1920,
+,Apenas 2 caracteres no campo dia,2,15.mm.yyyy - 2 caracteres,No limite: 15.mm.yyyy - 2 caracteres Fora do limite: 1.mm.yyyy; 015.mm.yyyy - 1 e 3 caracteres,
+,Apenas 2 caracteres no campo mês,2,dd.06.yyyy - 2 caracteres,No limite: dd.06.yyyy - 2 caracteres Fora do limite: dd.6.yyyy; dd.006.yyyy - 1 e 3 caracteres,
+,Apenas 4 caracteres no campo ano,4,dd.mm.1920 - 4 caracteres,No limite: dd.mm.1920 - 4 caracteres Fora do limite: dd.mm.192; dd.mm.01920 - 3 e 5 caracteres,
+,Data com letras,,D1.02.1920,,
+,Data com simbolos,,1@.05.2000,,
+,Data com espaços,,01 04 1890,,
+,Campo vazio,,"""""",,
+,Algarismos não Arábicos,,VI.X1.MM,,

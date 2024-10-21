@@ -1,0 +1,652 @@
+ID,Título do caso de teste,Etapas do teste,Dados do teste (corpo da solicitação),Resultado esperado,Resultado real,Status,Link para o relatório de bug,,,,,
+POST /api/v1/kits/:id/products,,,,,,,,,,,,
+1,Enviar uma requisição POST para incluir um item dentro do kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=3
+------------------------------------
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": 2
+ }
+ ]
+}",200 OK,200 OK,APROVADO,,,,,,
+2,Enviar uma requisição POST para atualizar a quantidade de um item no kit,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=7
+""quantity"" atual é 2.
+-------------------------------------
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": 1
+ }
+ ]
+}","200 OK 
+""quantity"" atualizado para 3","200 OK 
+""quantity"" atualizado para 3",APROVADO,,,,,,
+3,Enviar uma requisição POST com o parâmetro ID como String de letras,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=3
+-----------------------------------------
+{
+ ""productsList"": [
+ {
+ ""id"": 3
+ ""quantity"": 1
+ }
+ ]
+}",400 Bad Request,500 Internal Server Error,REPROVADO,https://carolgonzaga.atlassian.net/browse/API-1,,,,,
+4,Enviar uma requisição POST com o parâmetro ID como ZERO,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=3
+-----------------------------------------
+{
+ ""productsList"": [
+ {
+ ""id"": 0,
+ ""quantity"": 1
+ }
+ ]
+}",400 Bad Request,404 not found,REPROVADO,https://carolgonzaga.atlassian.net/browse/API-2,,,,,
+5,Enviar uma requisição POST com o parâmetro ID vazio,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=3
+-----------------------------------------
+{
+ ""productsList"": [
+ {
+ ""id"": """",
+ ""quantity"": 1
+ }
+ ]
+}",400 Bad Request,500 Internal Server Error,REPROVADO,https://carolgonzaga.atlassian.net/browse/API-3,,,,,
+6,Enviar uma requisição POST com o parâmetro ID com número negativo,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=3
+-----------------------------------------
+{
+ ""productsList"": [
+ {
+ ""id"": -2,
+ ""quantity"": 1
+ }
+ ]
+}",400 Bad Request,200 OK,REPROVADO,https://carolgonzaga.atlassian.net/browse/API-4,,,,,
+7,Enviar uma requisição POST para incluir mais de 30 itens em um kit,"1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação, após já ter incluído 30 itens no kit.","Path params: id=7
+-----------------------------------------
+{
+ ""productsList"": [
+ {
+ ""id"": 31,
+ ""quantity"": 1
+ }
+ ]
+}",400 Bad Request,400 Bad Request,APROVADO,,,,,,
+8,Enviar uma requisição POST sem passar o parâmetro ID,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=3
+-----------------------------------------
+{
+ ""productsList"": [
+ {
+ ""quantity"": 1
+ }
+ ]
+}",400 Bad Request,200 OK,REPROVADO,https://carolgonzaga.atlassian.net/browse/API-5,,,,,
+9,Enviar uma requisição POST com o parâmetro ID como string de caracter especial,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=3
+-----------------------------------------
+{
+ ""productsList"": [
+ {
+ ""id"": ""@@"",
+ ""quantity"": 1
+ }
+ ]
+}",400 Bad Request,500 Internal Server Error,REPROVADO,https://carolgonzaga.atlassian.net/browse/API-6,,,,,
+10,Enviar uma requisição POST com o parâmetro ID como string de número,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=3
+-----------------------------------------
+{
+ ""productsList"": [
+ {
+ ""id"": ""1"",
+ ""quantity"": 1
+ }
+ ]
+}",400 Bad Request,200 OK,REPROVADO,https://carolgonzaga.atlassian.net/browse/API-7,,,,,
+11,Enviar uma requisição POST com o parâmetro quantity como String de letras,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=3
+-----------------------------------------
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": ""Abacaxi""
+ }
+ ]
+}",400 Bad Request,500 Internal Server Error,REPROVADO,https://carolgonzaga.atlassian.net/browse/API-8,,,,,
+12,Enviar uma requisição POST com o parâmetro quantity como ZERO,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=3
+-----------------------------------------
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": 0
+ }
+ ]
+}",200 OK,200 OK,APROVADO,,,,,,
+13,Enviar uma requisição POST com o parâmetro quantity com número negativo,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=3
+-----------------------------------------
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": -1
+ }
+ ]
+}",400 Bad Request,200 OK,REPROVADO,https://carolgonzaga.atlassian.net/browse/API-9,,,,,
+14,Enviar uma requisição POST com o parâmetro quantity vazio,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=3
+-----------------------------------------
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": """"
+ }
+ ]
+}",400 Bad Request,200 OK,REPROVADO,https://carolgonzaga.atlassian.net/browse/API-10,,,,,
+15,Enviar uma requisição POST com o parâmetro quantity como String de caracter especial,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=3
+-----------------------------------------
+{
+ ""productsList"": [
+ {
+ ""id"": 1,
+ ""quantity"": ""@@""
+ }
+ ]
+}",400 Bad Request,500 Internal Server Error,REPROVADO,https://carolgonzaga.atlassian.net/browse/API-11,,,,,
+16,Enviar uma requisição POST sem passar o parâmetro quantity,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL e um ID de produto no corpo da solicitação.,"Path params: id=3
+-----------------------------------------
+{
+ ""productsList"": [
+ {
+ ""id"": 1
+ }
+ ]
+}",400 Bad Request,500 Internal Server Error,REPROVADO,https://carolgonzaga.atlassian.net/browse/API-12,,,,,
+17,"Enviar uma requisição POST com o parâmetro ""productsList"" como objeto",1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL.,"Path params: id=7
+-----------------------------------------
+{
+ ""productsList"": {}
+}",400 Bad Request,500 Internal Server Error,REPROVADO,https://carolgonzaga.atlassian.net/browse/API-13,,,,,
+18,Enviar uma requisição POST sem o parâmetro quantity e ID,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit existente na URL.,"Path params: id=3
+-----------------------------------------
+{
+ ""productsList"": [
+ {
+
+ }
+ ]
+}",400 Bad Request,500 Internal Server Error,REPROVADO,https://carolgonzaga.atlassian.net/browse/API-14,,,,,
+19,Enviar uma requisição POST sem o body da solicitação,1. Envie uma solicitação POST para /api/v1/kits/:id/products.,"Path params: id=7
+-----------------------------------------",400 Bad Request,400 Bad Request,APROVADO,,,,,,
+20,Enviar uma requisição POST com o ID do endpoint com letras,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit com letras.,"Path params: id= abacaxi
+-----------------------------------------
+{
+ ""productsList"": [
+ {
+ ""id"":1,
+ ""quantity"": 1
+
+ }
+ ]
+}",400 Bad Request,400 Bad Request,APROVADO,,,,,,
+21,Enviar uma requisição POST com o ID do endpoint com caracter especial,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit com caracter especial.,"Path params: id= @@@
+-----------------------------------------
+{
+ ""productsList"": [
+ {
+ ""id"":1,
+ ""quantity"": 1
+
+ }
+ ]
+}",400 Bad Request,400Bad Request,APROVADO,,,,,,
+22,Enviar uma requisição POST sem passar o ID no endpoint,1. Envie uma solicitação POST para /api/v1/kits/products.,"{
+ ""productsList"": [
+ {
+ ""id"":1,
+ ""quantity"": 1
+
+ }
+ ]
+}",405 Method Not Allowed,405 Method Not Allowed,APROVADO,,,,,,
+23,Enviar uma requisição POST com o ID de um kit inexistente no endpoint,1. Envie uma solicitação POST para /api/v1/kits/:id/products com um ID de kit com letras.,"Path params: id= 777
+-----------------------------------------
+{
+ ""productsList"": [
+ {
+ ""id"":1,
+ ""quantity"": 1
+
+ }
+ ]
+}",404 Not Found,404 Not Found,APROVADO,,,,,,
+,,,,,,,,,,,,
+ID,Título do caso de teste,Etapas do teste,Dados do teste (corpo da solicitação),Resultado esperado,Resultado real,Status,Link para o relatório de bug,,,,,
+POST /order-and-go/v1/delivery,,,,,,,,,,,,
+1,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 3",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 1,
+ ""productsWeight"": 2
+}","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",APROVADO,,,,,,
+2,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 3",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 9,
+ ""productsCount"": 1,
+ ""productsWeight"": 2
+}","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",APROVADO,,,,,,
+3,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 3",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 21,
+ ""productsCount"": 1,
+ ""productsWeight"": 2
+}","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",APROVADO,,,,,,
+4,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 3",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 22,
+ ""productsCount"": 1,
+ ""productsWeight"": 2
+}","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",APROVADO,,,,,,
+5,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 3",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 7,
+ ""productsCount"": 1,
+ ""productsWeight"": 2
+}","200 OK 
+
+""isItPossibleToDeliver"": false, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 5",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-15,,,,,
+6,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 3",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 23,
+ ""productsCount"": 1,
+ ""productsWeight"": 2
+}","200 OK 
+
+""isItPossibleToDeliver"": false, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 5",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-16,,,,,
+7,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 3",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 7,
+ ""productsWeight"": 2
+}","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",APROVADO,,,,,,
+8,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 3",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 8,
+ ""productsWeight"": 2
+}","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",APROVADO,,,,,,
+9,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 3",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 0,
+ ""productsWeight"": 2
+}","400 Bad Request
+
+""isItPossibleToDeliver"": false, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-17,,,,,
+10,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 3",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": -1,
+ ""productsWeight"": 2
+}","400 Bad Request
+
+""isItPossibleToDeliver"": false, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-18,,,,,
+11,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 3",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 1,
+ ""productsWeight"": 1
+}","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",APROVADO,,,,,,
+12,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 3",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 1,
+ ""productsWeight"": 2.9
+}","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",APROVADO,,,,,,
+13,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 3",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 1,
+ ""productsWeight"": 3
+}","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",APROVADO,,,,,,
+14,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 3",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 1,
+ ""productsWeight"": 0
+}","400 Bad Request
+
+""isItPossibleToDeliver"": false, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-19,,,,,
+15,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 3",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 1,
+ ""productsWeight"": -1
+}","400 Bad Request
+
+""isItPossibleToDeliver"": false, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-20,,,,,
+16,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 9,
+ ""productsWeight"": 3.1
+}","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0",APROVADO,,,,,,
+17,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 10,
+ ""productsWeight"": 3.1
+}","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0",APROVADO,,,,,,
+18,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 14,
+ ""productsWeight"": 3.1
+}","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0",APROVADO,,,,,,
+19,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 15,
+ ""productsWeight"": 3.1
+}","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0",APROVADO,,,,,,
+20,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 16,
+ ""productsWeight"": 3.1
+}","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 9","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 5",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-21,,,,,
+21,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 9,
+ ""productsWeight"": 3.2
+}","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0",APROVADO,,,,,,
+22,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 9,
+ ""productsWeight"": 5.9","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0",APROVADO,,,,,,
+23,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 9,
+ ""productsWeight"": 6
+}","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0",APROVADO,,,,,,
+24,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 9,
+ ""productsWeight"": 6.1
+}","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 9","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-22,,,,,
+25,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5 sem passar o parâmetro ""deliveyTime""",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""productsCount"": 9,
+ ""productsWeight"": 3.1
+}","400 Bad Request
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-23,,,,,
+26,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5 sem passar o parâmetro ""productsCount""",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsWeight"": 3.1
+}","400 Bad Request
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-24,,,,,
+27,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5 sem passar o parâmetro ""productsWeight""",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 9
+}","400 Bad Request
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0","200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-25,,,,,
+29,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5 com o parâmetro ""deliveryTime"" como String de letra",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": ""Abacaxi"",
+ ""productsCount"": 9,
+ ""productsWeight"": 6
+}",400 Bad Request,"200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-26,,,,,https://carolgonzaga.atlassian.net/browse/API-29
+30,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5 com o parâmetro ""deliveryTime"" como String de caracter especial",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": ""@@@"",
+ ""productsCount"": 9,
+ ""productsWeight"": 6
+}",400 Bad Request,"200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 0",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-27,,,,,
+31,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5 com o parâmetro ""deliveryTime"" vazio",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": """",
+ ""productsCount"": 9,
+ ""productsWeight"": 6
+}",400 Bad Request,"200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 5,
+""clientDeliveryCost"": 5",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-28,,,,,
+32,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5 com o parâmetro ""productsCount"" como String de letra",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": ""Abacaxi"",
+ ""productsWeight"": 6
+}",400 Bad Request,"200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-31,,,,,
+33,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5 com o parâmetro ""productsCount"" como String de caracter especial",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": ""@@@"",
+ ""productsWeight"": 6
+}",400 Bad Request,"200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-30,,,,,
+34,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5 com o parâmetro ""productsCount"" vazio",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": """",
+ ""productsWeight"": 6
+}",400 Bad Request,"200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-32,,,,,
+35,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5 com o parâmetro ""productsWeight"" como String de letra",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 9,
+ ""productsWeight"": ""Abacaxi""
+}",400 Bad Request,"200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-33,,,,,
+36,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5 com o parâmetro ""deliveryTime"" como String de caracter especial",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 9,
+ ""productsWeight"": ""@@@""
+}",400 Bad Request,"200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-34,,,,,
+37,"Enviar uma requisição POST com os seguintes requisitos para validar ""hostDeliveryCost"": 5 com o parâmetro ""deliveryTime"" vazio",1. Envie uma solicitação POST para /order-and-go/v1/delivery.,"{
+ ""deliveryTime"": 8,
+ ""productsCount"": 9,
+ ""productsWeight"": """"
+}",400 Bad Request,"200 OK 
+
+""isItPossibleToDeliver"": true, 
+""hostDeliveryCost"": 3,
+""clientDeliveryCost"": 0",REPROVADO,https://carolgonzaga.atlassian.net/browse/API-35,,,,,

@@ -1,0 +1,51 @@
+Checklist e resultados de teste: teste de layout,,,,
+,,,,
+№,Descrição da revisão,"Google Chrome, resolução de tela 800x600","Firefox, resolução de tela 1920x1080",Link para o relatório de bug
+Layout da tela inicial,,,,
+1,"Ao acessar o Urban.routes os campos ""De"" e ""Para"" estão vazios.",Aprovado,Aprovado,
+2,"Ao acessar o Urban.routes exibe o nome ""PLATAFORMA"" em marca d'água.",Reprovado,Reprovado,
+3,"Ao acessar o Urban.routes por padrão, o mapa exibe a cidade ""Los Angeles"".",Aprovado,Aprovado,
+4,"Ao acessar o Urban.routes são demonstrados dois botões ""Mapa"" e ""Satélite"".",Aprovado,Aprovado,
+5,"Ao acessar o Urban.routes exibe dois botões, um para ampliar ""+"" e um para reduzir ""-"" o mapa.",Aprovado,Aprovado,
+,,,,
+№,Descrição da revisão,"Google Chrome, resolução de tela 800x600","Firefox, resolução de tela 1920x1080",Link para o relatório de bug
+"Layout ""De"" e ""Para""",,,,
+1,"Ao digitar os endereços ""De"" e ""Para"" e selecionar o modo ""Personal"" exibe a frase ""Carsharing ~ $X Duração: X min.""",Reprovado,Reprovado,https://carolgonzaga.atlassian.net/browse/BR-1
+2,"Ao digitar os endereços ""De"" e ""Para"" e selecionar o modo ""Personal"" exibe o botão ""Reservar"".",Reprovado,Reprovado,https://carolgonzaga.atlassian.net/browse/BR-2
+3,"Ao digitar os endereços ""De"" e ""Para"" e selecionar o modo ""Personal"" exibe um carro na cor azul.",Aprovado,Aprovado,
+4,"Ao digitar os endereços ""De"" e ""Para"" e selecionar o modo ""Personal"" todas as opções de locomoção ficam em negrito.",Aprovado,Aprovado,
+5,"Ao digitar os endereços ""De"" e ""Para"" e selecionar o modo ""Personal"" o placeholder dos campos ""De"" e ""Para"" ficam em cima do endereço.",Aprovado,Aprovado,
+,,,,
+№,Descrição da revisão,"Google Chrome, resolução de tela 800x600","Firefox, resolução de tela 1920x1080",Link para o relatório de bug
+Layout do Mapa,,,,
+1,"Ao digitar os endereços ""De"" e ""Para"" e selecionar o modo ""Personal"" é exibido a rota no mapa.",Reprovado,Reprovado,https://carolgonzaga.atlassian.net/browse/BR-3
+2,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"" e clicar no botão ""Reservar"" exibe pop-ups com a marca do carro selecionado, no mapa.",Reprovado,Reprovado,https://carolgonzaga.atlassian.net/browse/BR-4
+3,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"" e clicar no botão ""Reservar"" exibe ícones de carros azuis no mapa.",Reprovado,Reprovado,https://carolgonzaga.atlassian.net/browse/BR-5
+4,"Ao digitar os endereços ""De"" e ""Para"" e selecionar o modo ""Personal"" a rota é traçada no mapa por uma linha azul.",Aprovado,Aprovado,
+,,,,
+№,Descrição da revisão,"Google Chrome, resolução de tela 800x600","Firefox, resolução de tela 1920x1080",Link para o relatório de bug
+"Layout da tarifa ""Casual""",,,,
+1,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"", clicar no botão ""Reservar"" e escolher a tarifa ""Casual"" será exibido o nome ""BMW 750"".",Aprovado,Aprovado,
+2,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"", clicar no botão ""Reservar"" e escolher a tarifa ""Casual"" será exibido a frase ""Apenas negócios, nada extra"".",Aprovado,Aprovado,
+3,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"", clicar no botão ""Reservar"" e escolher a tarifa ""Casual"" será exibido a frase "" 4 min • 15 minutos de espera gratuita"".",Aprovado,Aprovado,
+4,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"", clicar no botão ""Reservar"" e escolher a tarifa ""Casual"" exibe o desenho de um carro cinza bem detalhado.",Aprovado,Aprovado,
+5,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"", clicar no botão ""Reservar"" e escolher a tarifa ""Casual"" exibe o campo ""Adicionar carteira de motorista >"".",Aprovado,Aprovado,
+6,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"", clicar no botão ""Reservar"" e escolher a tarifa ""Casual"" exibe o campo ""Método de pagamento Adicionar "".",Aprovado,Aprovado,
+7,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"", clicar no botão ""Reservar"" e escolher a tarifa ""Casual"" aparece o botão ""Adicionar carteira de motorista e reservar A rota será de X quilômetros e levará X minutos."".",Aprovado,Aprovado,
+8,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"", clicar no botão ""Reservar"", escolher a tarifa ""Casual"" e adicionar uma carteira de motorista válida o campo fica contornado de verde e ao lado da frase ""Carteira de motorista"" tem um check representando a validação do campo.",Reprovado,Reprovado,https://carolgonzaga.atlassian.net/browse/BR-6
+9,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"", clicar no botão ""Reservar"", escolher a tarifa ""Casual"" e adicionar um método de pagamento válido o campo exibe o tipo de pagamento, ex.: ""Cartão"" no lugar da palavra ""Adicionar"" .",Aprovado,Aprovado,
+,,,,
+№,Descrição da revisão,"Google Chrome, resolução de tela 800x600","Firefox, resolução de tela 1920x1080",Link para o relatório de bug
+"Layout do Pop-up ""O carro foi reservado""",,,,
+1,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"", clicar no botão ""Reservar"", escolher a tarifa ""Casual"", preencher corretamente os campos ""Carteira de motorista"" e ""Método de pagamento"" e clicar no botão ""Reservar"", será exibido um pop-up com a frase ""O carro foi reservado"".",Reprovado,Reprovado,https://carolgonzaga.atlassian.net/browse/BR-7
+2,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"", clicar no botão ""Reservar"", escolher a tarifa ""Casual"", preencher corretamente os campos ""Carteira de motorista"" e ""Método de pagamento"" e clicar no botão ""Reservar"", será exibido um pop-up com a frase ""Espera gratuita"".",Aprovado,Aprovado,
+3,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"", clicar no botão ""Reservar"", escolher a tarifa ""Casual"", preencher corretamente os campos ""Carteira de motorista"" e ""Método de pagamento"" e clicar no botão ""Reservar"", será exibido um pop-up, onde será demonstrado o modelo e a placa do veículo acima do ícone do carro cinza.",Reprovado,Reprovado,https://carolgonzaga.atlassian.net/browse/BR-8
+4,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"", clicar no botão ""Reservar"", escolher a tarifa ""Casual"", preencher corretamente os campos ""Carteira de motorista"" e ""Método de pagamento"" e clicar no botão ""Reservar"", será exibido um pop-up com um ícone de um carro cinza detalhado.",Reprovado,Reprovado,https://carolgonzaga.atlassian.net/browse/BR-9
+5,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"", clicar no botão ""Reservar"", escolher a tarifa ""Casual"", preencher os campos ""Carteira de motorista"" e ""Método de pagamento"" e clicar no botão ""Reservar"", será exibido um pop-up com um botão ""X Cancelar"" para cancelamento do pedido.",Aprovado,Aprovado,
+,,,,
+№,Descrição da revisão,"Google Chrome, resolução de tela 800x600","Firefox, resolução de tela 1920x1080",Link para o relatório de bug
+"Layout dos Pop-ups ""Tem certeza de que deseja cancelar a corrida?"" e ""A corrida foi cancelada""",,,,
+1,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"", clicar no botão ""Reservar"", escolher a tarifa ""Casual"", preencher corretamente os campos ""Carteira de motorista"" e ""Método de pagamento"", clicar no botão ""Reservar"", e depois clicar no botão ""X Cancelar"", será exibido um pop-up com a frase ""Tem certeza de que deseja cancelar a corrida?"".",Reprovado,Reprovado,https://carolgonzaga.atlassian.net/browse/BR-10
+2,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"", clicar no botão ""Reservar"", escolher a tarifa ""Casual"", preencher corretamente os campos ""Carteira de motorista"" e ""Método de pagamento"", clicar no botão ""Reservar"", e depois clicar no botão ""X Cancelar"", será exibido um pop-up com dois botões de ação ""Sim"" e ""Não"".",Bloqueado,Bloqueado,https://carolgonzaga.atlassian.net/browse/BR-11
+3,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"", clicar no botão ""Reservar"", escolher a tarifa ""Casual"", preencher corretamente os campos ""Carteira de motorista"" e ""Método de pagamento"", clicar no botão ""Reservar"", clicar no botão ""X Cancelar"" e clicar no botão ""Sim"", será exibido um novo pop-up com a frase ""A corrida foi cancelada"".",Bloqueado,Bloqueado,https://carolgonzaga.atlassian.net/browse/BR-12
+4,"Ao digitar os endereços ""De"" e ""Para"", selecionar o modo ""Personal"", clicar no botão ""Reservar"", escolher a tarifa ""Casual"", preencher corretamente os campos ""Carteira de motorista"" e ""Método de pagamento"", clicar no botão ""Reservar"", clicar no botão ""X Cancelar"" e clicar no botão ""Sim"", será exibido um novo pop-up que contém o botão ""Entendido"".",Bloqueado,Bloqueado,https://carolgonzaga.atlassian.net/browse/BR-13

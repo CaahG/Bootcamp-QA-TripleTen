@@ -1,0 +1,1111 @@
+,,Comentário
+1. Por que as práticas de design de teste não podem ser aplicadas imediatamente após o recebimento dos requisitos?,,
+"As práticas de design de teste não podem ser aplicadas imediatamente após o recebimento dos requisitos por várias razões importantes:
+
+1.Incompletude e Ambiguidade dos Requisitos: Requisitos iniciais frequentemente contêm ambiguidades, incompletudes ou inconsistências. Antes de iniciar o design de teste, é crucial esclarecer esses pontos com os stakeholders para garantir que todos tenham a mesma compreensão do que é necessário.
+
+2.Refinamento e Priorização dos Requisitos: Após o recebimento inicial, os requisitos geralmente passam por um processo de refinamento e priorização. Isso significa que alguns requisitos podem ser alterados, removidos ou adiados, afetando diretamente o que precisa ser testado e em qual ordem.
+
+3.Entendimento Detalhado do Sistema: O design de testes eficaz requer um entendimento profundo de como o sistema será implementado. Isso inclui conhecimento sobre a arquitetura do sistema, interfaces, dependências, e outros aspectos técnicos que podem não estar claros ou definidos no momento em que os requisitos são inicialmente recebidos.
+
+4.Planejamento e Estratégia de Testes: Antes de começar o design de teste, é necessário criar um plano de testes e definir uma estratégia de testes. Isso envolve decidir sobre abordagens de testes, ferramentas a serem utilizadas, ambientes de teste, e recursos necessários. Esse planejamento ajuda a garantir que os testes sejam abrangentes e eficientes.
+
+5.Especificação dos Critérios de Aceitação: Os critérios de aceitação dos requisitos devem ser especificados e acordados antes de iniciar o design de teste. Esses critérios definem como será verificado se os requisitos foram atendidos e são essenciais para o desenvolvimento de casos de teste.
+
+6.Coordenação com a Equipe de Desenvolvimento: O design de teste eficaz muitas vezes requer colaboração estreita com a equipe de desenvolvimento para entender melhor as implementações técnicas e quaisquer restrições que possam impactar os testes. Esse alinhamento é crucial e pode levar algum tempo para ser estabelecido após o recebimento dos requisitos.
+
+7.Disponibilidade de Ferramentas e Ambientes de Teste: Antes de começar o design de teste, é necessário garantir que as ferramentas de teste e os ambientes de teste estejam disponíveis e configurados corretamente. Isso inclui a configuração de ambientes de teste que simulem adequadamente o ambiente de produção.
+
+Portanto, embora seja tentador começar o design de testes imediatamente após receber os requisitos, é prudente passar por essas etapas preparatórias para garantir que os testes sejam bem planejados, abrangentes e eficazes.",,
+2. Em que situações as classes de equivalência e os valores-limite podem existir separadamente? Explique sua resposta e dê exemplos.,,
+"Classes de Equivalência Separadas de Valores-Limite
+
+Classes de equivalência são utilizadas para dividir os dados de entrada em grupos (ou classes) onde o comportamento do sistema é esperado ser o mesmo para todos os valores dentro de um mesmo grupo. Essas classes podem existir separadamente quando os dados de entrada não têm limites claramente definidos ou quando os limites não são significativos para os testes. Por exemplo:
+
+Exemplo:
+
+Campo de entrada de texto: Um campo que aceita qualquer texto alfabético pode ser dividido em duas classes de equivalência: uma para texto alfabético válido e outra para texto não alfabético inválido (incluindo números e caracteres especiais). Nesse caso, não há um valor-limite relevante para testar.
+
+
+Valores-Limite Separados de Classes de Equivalência
+
+Valores-limite são usados para testar as fronteiras de classes de equivalência, mas podem ser considerados separadamente em situações onde os limites específicos têm uma importância crítica, e o comportamento em torno desses limites é de particular interesse, independentemente das classes de equivalência gerais. Por exemplo:
+
+Exemplo:
+
+Limite de uma faixa etária: Um sistema de bilheteria que oferece preços diferentes com base em faixas etárias pode ter limites de idade específicos (e.g., 12 anos, 18 anos, 65 anos) que precisam ser testados rigorosamente, mesmo que a entrada de idade possa ser dividida em classes de equivalência (crianças, adultos, idosos).",,
+3. O que é equivalência? O que é uma classe de equivalência?,,
+"Equivalência
+
+Equivalência em teste de software refere-se ao conceito de tratar diferentes entradas ou condições como iguais ou equivalentes para fins de teste. A ideia é que se um conjunto de entradas ou condições é considerado equivalente em termos de comportamento esperado do sistema, então testar uma dessas entradas é suficiente para garantir que todas as outras entradas equivalentes funcionarão da mesma forma.
+
+Classe de Equivalência
+
+Uma classe de equivalência é um subconjunto de dados de entrada que o sistema trata de maneira idêntica. Em outras palavras, é um grupo de valores de entrada ou condições que são esperados a produzir o mesmo resultado ou comportamento durante a execução do software. Testar um valor representativo de cada classe de equivalência é considerado suficiente para inferir o comportamento do sistema para todos os valores dentro dessa classe.",,
+4. É possível excluir verificações no meio do intervalo em favor de verificações nos limites dentro do intervalo? Explique sua resposta.,,
+"Sim, é possível excluir verificações no meio do intervalo em favor de verificações nos limites dentro do intervalo, especialmente quando se aplica a técnica de análise de valor-limite em conjunto com classes de equivalência. A análise de valor-limite é uma abordagem focada em testar as fronteiras de classes de equivalência, onde erros são mais propensos a ocorrer.
+
+Pois, os defeitos em sistemas de software tendem a ocorrer nas extremidades dos intervalos de entrada, ou seja, nos limites, mais frequentemente do que no meio desses intervalos. Isso acontece porque muitas falhas surgem devido a erros de programação relacionados ao manuseio inadequado das bordas de intervalos (por exemplo, off-by-one errors).
+
+Porém, essa prática não é recomendada podendo ser utilizada  apenas quando há recursos e tempo limitados para teste, priorizando dessa forma os Valores Limites.",,
+5. Imagine que você precise testar um formulário onde cada campo possui um validador. O resultado do trabalho do formulário depende da combinação de dados nos campos. Quais práticas de design de teste devem ser usadas e por quê? Explique sua resposta.,,
+"1. Classes de Equivalência e Análise de Valor-Limite
+
+Razão: As classes de equivalência ajudam a reduzir o número de casos de teste necessários, agrupando entradas que devem ser tratadas de forma similar pelo sistema. A análise de valor-limite é utilizada para focar nos valores nas extremidades dos intervalos de entrada, onde os defeitos são mais prováveis de ocorrer.
+
+2. Teste de Combinações (Combinação de Classes de Equivalência)
+
+Razão: Dado que o resultado do formulário depende da combinação de dados nos campos, é essencial testar diferentes combinações de entradas válidas e inválidas para identificar interações problemáticas entre os campos.
+
+3. Teste de Caso de Uso
+
+Razão: Testar os cenários reais de uso do formulário garante que o sistema funcione corretamente sob condições práticas e usuais.
+
+4. Teste de Regressão
+
+Razão: Garantir que novas alterações ou adições ao formulário não introduzam novos defeitos ou reintroduzam defeitos antigos.
+
+5. Teste de Interface de Usuário (UI)
+
+Razão: Garantir que a interação do usuário com o formulário seja intuitiva e livre de erros.
+
+6. Teste de Desempenho
+
+Razão: Assegurar que o formulário funcione de maneira eficiente, mesmo sob condições de carga.
+
+7. Tabelas de Decisão
+
+Razão: É uma ferramenta essencial para garantir que todas as convenções de entradas e saídas sejam testadas de maneira estruturada e eficiente, minimizando erros e aumentando a qualidade do software, sendo assim a melhor forma para validar este fórmulário. 
+
+Explicação
+
+Ao aplicar essas práticas de design de teste, é possível assegurar que o formulário seja rigorosamente testado, tanto em termos de validação de campos individuais quanto na interação e combinação dos dados nos campos. Isso ajuda a identificar e corrigir defeitos, garantindo que o formulário funcione corretamente sob diversas condições de uso.",,
+6. Explique como você pode otimizar o número de testes ao trabalhar com tabelas de decisão. Explique sua resposta.,,
+"1. Identificação de Condições e Ações
+
+Primeiro, eu definiria claramente todas as condições (entradas) e ações (resultados) associadas ao sistema em teste. 
+Cada condição pode ter vários valores possíveis (por exemplo, verdadeiro/falso, diferentes intervalos de valores, etc.).
+
+2. Criação da Tabela de Decisão
+
+Criaria uma tabela onde, cada linha representa uma combinação única de condições e a ação correspondente e cada coluna representa uma condição ou uma ação.
+
+3. Agrupamento de Condições e Redução de Linhas
+
+Identificaria condições equivalentes que resultem na mesma ação e agruparia elas para reduzir o número de linhas na tabela, utilizando técnicas de simplificação, como a minimização de Karnaugh, para eliminar redundâncias.
+
+4. Uso de Particionamento de Equivalência
+
+Dividiria as condições em classes de equivalência onde, cada classe representa um conjunto de valores tratados de forma semelhante pelo sistema. Isso ajuda a reduzir o número de combinações únicas a serem testadas.
+
+5. Análise Combinatória e Matriz Ortogonal
+
+Utilizaria técnicas como análise combinatória ou matrizes ortogonais para selecionar um subconjunto representativo das combinações possíveis. Isso ajuda a garantir uma boa cobertura de teste sem testar todas as combinações possíveis.
+
+
+6. Priorização de Testes
+
+Priorizaria as combinações de condições que são mais críticas ou mais prováveis de ocorrerem. Foco em áreas de maior risco ou impacto.
+
+
+Explicação
+
+Ao aplicar essas técnicas, é possível otimizar o número de testes necessários, focando nos cenários mais representativos e críticos, enquanto ainda se garante uma cobertura adequada. A tabela de decisão simplificada e otimizada resulta em um conjunto de testes gerenciável, garantindo que o sistema seja testado de forma eficiente e eficaz.",,
+7. Descreva como um checklist difere dos casos de teste. Dê exemplos de onde ambos são usados.,,
+"Um checklist e um caso de teste são ferramentas de teste de software utilizadas para garantir a qualidade e a funcionalidade do sistema. Embora ambos sejam importantes para o processo de teste, eles diferem em vários aspectos. Abaixo estão as diferenças entre um checklist e casos de teste, junto com exemplos de onde cada um pode ser usado.
+
+Checklists
+
+Descrição:
+
+*Natureza: Um checklist é uma lista de itens ou verificações a serem confirmadas. Ele é geralmente mais simples e menos detalhado do que casos de teste.
+*Detalhamento: Um checklist contém itens de verificação que precisam ser confirmados, mas não detalha os passos específicos para realizar cada verificação.
+*Utilização: Checklists são frequentemente usados em revisões rápidas e para garantir que os itens básicos e essenciais sejam cobertos.
+
+Exemplos de Uso:
+
+Revisão de Interface do Usuário (UI):
+
+Verificar se todos os botões estão alinhados corretamente.
+Confirmar que todas as fontes são consistentes.
+Verificar se todas as imagens têm texto alternativo.
+
+Revisão de Documentação:
+
+Verificar se todas as seções obrigatórias estão presentes.
+Confirmar que todas as figuras e tabelas estão numeradas corretamente.
+Verificar a ortografia e gramática.
+
+Deployment Checklist:
+
+Verificar se todas as dependências estão instaladas.
+Confirmar que as configurações de rede estão corretas.
+Verificar se os backups foram realizados.
+
+Casos de Teste
+
+Descrição:
+
+*Natureza: Um caso de teste é uma descrição detalhada de um cenário de teste, incluindo os passos específicos a serem seguidos, os dados de entrada, as condições prévias e os resultados esperados.
+*Detalhamento: Casos de teste são mais detalhados e específicos, fornecendo instruções claras sobre como realizar o teste.
+*Utilização: Casos de teste são usados para testar funcionalidades específicas do sistema de maneira detalhada e sistemática.
+
+Exemplos de Uso:
+
+Teste de Funcionalidade:
+
+Caso de Teste: Verificar a funcionalidade de login
+
+Passos:
+
+Abrir a página de login.
+Inserir nome de usuário válido.
+Inserir senha válida.
+Clicar no botão ""Login"".
+
+Dados de Entrada: Nome de usuário: ""usuario_teste"", Senha: ""senha123""
+
+Resultado Esperado: O usuário deve ser redirecionado para a página inicial.
+
+Teste de Integração:
+
+Caso de Teste: Verificar a integração entre o módulo de pagamento e o sistema de confirmação de pedido
+
+Passos:
+
+Selecionar um item e adicioná-lo ao carrinho.
+Navegar até a página de checkout.
+Inserir informações de pagamento válidas.
+Clicar em ""Confirmar Pagamento"".
+
+Dados de Entrada: Informações de pagamento do cartão de crédito.
+
+Resultado Esperado: O pedido deve ser confirmado e um e-mail de confirmação deve ser enviado.
+
+Teste de Desempenho:
+
+Caso de Teste: Verificar a capacidade do sistema sob carga
+
+Passos:
+
+Simular 1000 usuários acessando o sistema simultaneamente.
+Monitorar o desempenho do sistema.
+
+Dados de Entrada: Script de simulação de carga.
+
+Resultado Esperado: O sistema deve responder em menos de 2 segundos para cada usuário.
+
+Resumo das Diferenças
+
+Aspecto                                               Checklist                                                        Caso de Teste
+Detalhamento                                  Menos detalhado                                            Altamente detalhado
+Conteúdo                           Itens a serem verificados                Passos específicos, entradas e resultados esperados
+Utilização                    Revisões rápidas, validações básicas                Teste de funcionalidades específicas
+Flexibilidade                         Mais flexível, menos formal                                        Estruturado e formal
+Exemplos de Uso          Revisões de UI, documentação, deploy             Teste de login, integração, desempenho",,
+8. Qual é a maneira correta de fazer um relatório de bug? Quais elementos de um relatório de bug são necessários? Por quê?,,
+"Um relatório de bug bem elaborado é essencial para comunicar problemas de maneira eficaz e facilitar a correção dos mesmos. Aqui estão os elementos necessários para um relatório de bug completo e a explicação de por que cada um deles é importante:
+
+Elementos Necessários em um Relatório de Bug
+
+Identificador Único (ID do Bug)
+
+*Importância: Permite a rastreabilidade e facilita a referência ao bug em comunicações e em futuras consultas.
+Exemplo: BUG-1234
+
+Título (Resumo)
+
+*Importância: Um resumo curto e claro que descreve o problema, facilitando a rápida identificação do bug.
+Exemplo: ""Erro ao salvar documento após alteração de título""
+
+Descrição Detalhada
+
+*Importância: Fornece um relato claro e completo do problema, incluindo o comportamento esperado e o comportamento real.
+Exemplo: ""Ao tentar salvar um documento após alterar o título, o sistema exibe uma mensagem de erro 'Falha ao salvar documento'. O esperado é que o documento seja salvo com o novo título.""
+
+Passos para Reproduzir
+
+*Importância: Lista as ações específicas necessárias para reproduzir o bug, permitindo que outros (desenvolvedores, testadores) possam replicar o problema.
+Exemplo:
+1.Abra o aplicativo.
+2.Crie um novo documento.
+3.Altere o título do documento.
+4.Clique no botão 'Salvar'.
+5.Observe a mensagem de erro.
+
+Resultado Esperado
+
+*Importância: Descreve o comportamento que deveria ocorrer, ajudando a entender o que está errado.
+Exemplo: ""O documento deve ser salvo com o novo título sem erro.""
+
+Resultado Real
+
+*Importância: Descreve o comportamento que realmente ocorre, fornecendo uma visão clara do problema.
+Exemplo: ""O sistema exibe a mensagem de erro 'Falha ao salvar documento'.""
+
+Ambiente de Teste
+
+*Importância: Fornece detalhes sobre o ambiente em que o bug foi encontrado, incluindo sistema operacional, versão do software, navegador, etc., para ajudar a identificar se o problema é específico a um ambiente.
+Exemplo: ""Windows 10, versão do aplicativo 3.2.1, navegador Chrome 91.0.4472.124.""
+
+Prioridade e Severidade
+
+*Importância: Indica a importância e o impacto do bug, ajudando a definir a ordem de correção.
+Exemplo: Prioridade: Alta, Severidade: Crítica
+
+Anexos (Capturas de Tela, Vídeos, Logs)
+
+*Importância: Fornece evidências visuais ou logs que podem ajudar a entender melhor o problema e facilitar a reprodução do bug.
+Exemplo: ""Anexada captura de tela da mensagem de erro.""
+
+Componentes / Módulos Atingidos
+
+Importância: Especifica qual parte do sistema está afetada, ajudando a localizar o problema.
+Exemplo: ""Módulo de Edição de Documentos.""
+
+Data e Hora do Relato
+
+Importância: Registra quando o bug foi relatado, auxiliando na gestão do ciclo de vida do bug.
+Exemplo: ""21 de Julho de 2024, 14:35""
+
+Relator
+
+Importância: Identifica quem relatou o bug para que possam ser contatados para mais informações, se necessário.
+Exemplo: ""João Silva""
+
+Conclusão
+
+Um relatório de bug bem detalhado é crucial para a eficiência do processo de correção de bugs. Ele deve ser claro, conciso e conter todas as informações necessárias para que os desenvolvedores possam entender, reproduzir e corrigir o problema. Isso não só ajuda na resolução rápida e eficaz do bug, mas também melhora a comunicação e a colaboração entre as equipes de teste e desenvolvimento.",,
+9. Quais são as regras para escrever um título de relatório de bug? O que acontece se você criar um título ruim?,,
+"Regras para Escrever um Título de Relatório de Bug
+
+Um título de relatório de bug bem escrito é crucial para garantir que o problema seja compreendido rapidamente e priorizado corretamente. Aqui estão algumas regras para escrever um título eficaz:
+
+Seja Claro e Conciso
+
+O título deve ser breve, mas suficientemente detalhado para descrever o problema.
+
+Exemplo: ""Erro ao salvar documento após alteração de título""
+
+Descreva o Comportamento ou Sintoma do Problema
+
+Foco no que está acontecendo, não no que você acha que está causando o problema.
+
+Exemplo: ""Aplicativo trava ao carregar relatório de vendas""
+
+Inclua o Contexto Relevante
+
+Mencione o módulo, função ou parte do sistema afetada.
+
+Exemplo: ""Erro de formatação na página de checkout""
+
+Evite Ambiguidade
+
+Use termos específicos em vez de genéricos.
+
+Exemplo: Em vez de ""Erro ao salvar"", use ""Erro ao salvar documento após alteração de título""
+
+Evite Palavras Supérfluas
+
+Mantenha o título livre de palavras desnecessárias.
+
+Exemplo: Em vez de ""Há um erro quando o usuário tenta salvar um documento"", use ""Erro ao salvar documento""
+
+Mantenha um Tom Neutro
+
+Evite usar linguagem emocional ou subjetiva.
+
+Exemplo: Em vez de ""Aplicativo horrível trava sempre"", use ""Aplicativo trava ao carregar relatório de vendas""
+
+Considere o Público-Alvo
+
+Escreva o título para ser compreendido por todos os membros da equipe, incluindo desenvolvedores e gerentes.
+
+Exemplo: ""Falha na autenticação de usuário com login Google""
+
+Consequências de um Título Ruim
+
+Um título mal escrito pode ter várias consequências negativas:
+
+Dificuldade em Priorizar e Classificar Bugs
+
+Títulos vagos ou genéricos podem tornar difícil para os gerentes de projeto e equipes de desenvolvimento entender a gravidade e a prioridade do bug.
+Problema: Um título como ""Erro no aplicativo"" não fornece informações suficientes para avaliar a urgência.
+
+Confusão e Mal-Entendidos
+
+Títulos ambíguos ou mal formulados podem levar a confusões sobre o problema real, resultando em diagnósticos incorretos.
+Problema: Um título como ""Erro ao salvar"" não esclarece o contexto, levando a possíveis suposições erradas.
+
+Aumento no Tempo de Resolução
+
+Se o problema não for entendido rapidamente, pode haver atrasos significativos na sua resolução.
+Problema: Os desenvolvedores podem precisar de mais tempo para investigar e pedir esclarecimentos, aumentando o tempo para corrigir o bug.
+
+Risco de Duplicação de Esforços
+
+Títulos ruins podem resultar em bugs duplicados sendo relatados, já que outros testadores podem não perceber que estão relatando o mesmo problema.
+Problema: Recursos são desperdiçados investigando e resolvendo bugs que já foram relatados sob diferentes títulos.
+
+Conclusão
+
+Escrever um título de relatório de bug claro, conciso e descritivo é fundamental para a eficiência do processo de correção de bugs. Um bom título ajuda a equipe a compreender rapidamente o problema, priorizar adequadamente e resolver o bug de maneira eficaz. Por outro lado, títulos mal escritos podem levar a confusão, mal-entendidos, duplicação de esforços e aumento do tempo de resolução. Portanto, é essencial seguir as melhores práticas ao redigir títulos de relatórios de bugs.",,
+10. Em que consiste a arquitetura de um aplicativo cliente-servidor? Descreva resumidamente a funcionalidade de cada elemento.,,
+"A arquitetura de um aplicativo cliente-servidor é um modelo de sistema distribuído onde tarefas ou cargas de trabalho são divididas entre os fornecedores de um recurso ou serviço, chamados servidores, e os solicitantes de serviços, chamados clientes. Este modelo permite uma separação clara de responsabilidades e facilita a escalabilidade e a manutenção do sistema. Aqui está uma descrição resumida da funcionalidade de cada elemento na arquitetura cliente-servidor:
+
+Componentes da Arquitetura Cliente-Servidor
+
+Cliente (Front-end)
+
+*Descrição: O cliente é a parte do sistema que interage diretamente com o usuário. É responsável por coletar a entrada do usuário, enviar solicitações ao servidor e apresentar os dados recebidos de volta ao usuário.
+
+*Funcionalidade:
+
+Interface de Usuário (UI): Proporciona a interface gráfica ou textual através da qual os usuários interagem com o aplicativo.
+Solicitações ao Servidor: Envia solicitações ao servidor para obter dados ou realizar operações.
+Processamento Local: Pode realizar algum processamento local, como validação de dados e formatação.
+Recebimento de Respostas: Recebe e processa as respostas do servidor, apresentando-as ao usuário de forma apropriada.
+
+Servidor (Back-end)
+
+*Descrição: O servidor é responsável por fornecer serviços ou recursos solicitados pelos clientes. Ele centraliza o processamento, armazenamento de dados e lógica de negócios.
+
+*Funcionalidade:
+
+Gerenciamento de Conexões: Gerencia as conexões recebidas dos clientes.
+Processamento de Solicitações: Recebe solicitações dos clientes, processa-as e envia de volta as respostas apropriadas.
+Lógica de Negócio: Implementa a lógica de negócios centralizada, realizando operações complexas ou críticas.
+Acesso e Gerenciamento de Dados: Acessa, manipula e gerencia dados armazenados em bancos de dados ou outras formas de armazenamento persistente.
+
+Rede
+
+*Descrição: A rede fornece o canal de comunicação entre clientes e servidores. Pode ser uma rede local (LAN), uma rede ampla (WAN), ou a internet.
+
+*Funcionalidade:
+
+Transmissão de Dados: Facilita a transferência de dados entre clientes e servidores.
+Protocolo de Comunicação: Utiliza protocolos como HTTP, HTTPS, TCP/IP para garantir que os dados sejam enviados e recebidos corretamente.
+Segurança: Implementa medidas de segurança como criptografia, firewalls e autenticação para proteger os dados em trânsito.",,
+11. Descreva as etapas de processamento da solicitação após esta URL ser inserida na barra de endereços do navegador: https://google.com.,,
+"Quando a URL https://google.com é inserida na barra de endereços do navegador e o usuário pressiona Enter, diversas etapas de processamento ocorrem para carregar a página solicitada. Aqui estão as etapas principais de processamento da solicitação:
+
+1. Entrada do URL
+
+Entrada do Usuário: O usuário digita https://google.com na barra de endereços do navegador e pressiona Enter.
+
+2. Análise da URL
+
+Parsing da URL: O navegador analisa a URL para decompor seus componentes:
+
+Protocolo: https
+Domínio: google.com
+Caminho: / (implícito)
+
+3. Resolução de DNS
+
+Cache Local: O navegador verifica se o endereço IP de google.com já está armazenado em cache.
+
+Consulta ao Servidor DNS: Se o endereço IP não estiver em cache, o navegador realiza uma consulta DNS para traduzir google.com em um endereço IP. Isso pode envolver várias etapas, como consultar servidores DNS locais e raiz.
+
+4. Estabelecimento de Conexão TCP
+
+TCP Handshake: O navegador inicia uma conexão TCP com o servidor web do Google. Isso envolve um processo de handshake de três vias:
+
+Envio de um pacote SYN para o servidor.
+Recebimento de um pacote SYN-ACK do servidor.
+Envio de um pacote ACK de volta ao servidor.
+
+5. Negociação de SSL/TLS
+
+SSL/TLS Handshake: Dado que o protocolo é HTTPS, uma conexão segura SSL/TLS é negociada:
+
+O navegador solicita uma conexão segura enviando uma mensagem ""ClientHello"".
+O servidor responde com uma mensagem ""ServerHello"", incluindo seu certificado SSL/TLS.
+O navegador valida o certificado do servidor (verificando a assinatura digital e a cadeia de certificação).
+Chaves de sessão são trocadas para estabelecer uma conexão segura.
+
+6. Envio de Requisição HTTP
+
+Requisição HTTP: O navegador envia uma requisição HTTP GET ao servidor do Google:
+
+vbnet
+Copiar código
+GET / HTTP/1.1
+Host: google.com
+
+7. Processamento da Requisição no Servidor
+
+Recepção da Requisição: O servidor web do Google recebe a requisição.
+
+Processamento do Servidor: O servidor processa a requisição, que pode envolver consultas a bancos de dados, execução de scripts, e acesso a recursos estáticos ou dinâmicos.
+
+Geração de Resposta: O servidor gera uma resposta HTTP, incluindo o código de status (como 200 OK) e o conteúdo da página solicitada.
+
+8. Envio da Resposta HTTP
+
+Resposta HTTP: O servidor envia a resposta HTTP de volta ao navegador:
+
+php
+Copiar código
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 12345
+
+9. Renderização da Página pelo Navegador
+
+Recepção da Resposta: O navegador recebe a resposta e começa a processar o conteúdo HTML.
+
+Parsing do HTML: O navegador analisa o HTML, criando a árvore DOM (Document Object Model).
+
+Requisições Adicionais: O navegador identifica recursos adicionais necessários (CSS, JavaScript, imagens) e faz requisições HTTP adicionais para obter esses recursos.
+
+Construção do CSSOM: O navegador analisa os arquivos CSS e constrói a árvore CSSOM (CSS Object Model).
+
+Execução de JavaScript: O navegador executa scripts JavaScript, que podem manipular o DOM e o CSSOM.
+
+Renderização: O navegador combina a árvore DOM e a árvore CSSOM para renderizar a página final na tela do usuário.
+
+10. Exibição da Página ao Usuário
+
+Renderização Completa: A página completamente carregada e renderizada é exibida ao usuário.
+
+Interatividade: A página está agora interativa, permitindo que o usuário navegue e interaja com os elementos da página.",,
+12. O que é um cache? Por que é necessário? Qual regra deve ser seguida ao trabalhar com um cache no teste?,,
+"Um cache é um armazenamento temporário de dados que foram recentemente acessados ou calculados, para que futuras solicitações por esses dados possam ser atendidas de forma mais rápida. Caches são utilizados para melhorar a performance e eficiência, reduzindo a latência e a carga sobre recursos mais lentos ou limitados.
+
+O cache é necessário para:
+
+Melhoria de Desempenho:
+
+Redução da Latência: Acessar dados do cache é significativamente mais rápido do que buscar os dados diretamente da origem, como um banco de dados remoto ou um servidor web.
+Menos Sobrecarga: Caches aliviam a carga sobre servidores e redes, permitindo que eles atendam a mais solicitações simultâneas sem degradação de desempenho.
+
+Economia de Recursos:
+
+Menor Uso de Rede: Reduz a necessidade de transferir dados repetidamente pela rede, economizando largura de banda.
+Desempenho Consistente: Fornece respostas mais rápidas e consistentes, mesmo sob cargas elevadas.
+
+Escalabilidade:
+
+Manutenção de Escalabilidade: Ajuda a manter a escalabilidade de sistemas distribuídos, permitindo que mais usuários sejam atendidos sem comprometer a performance.
+
+Regras ao Trabalhar com um Cache no Teste
+
+Ao trabalhar com caches no teste, é essencial seguir algumas regras para garantir a precisão e a eficácia dos testes:
+
+Invalidar o Cache Adequadamente:
+
+Regra: Assegure-se de que o cache é invalidado quando os dados subjacentes são atualizados.
+Razão: Evita que dados obsoletos sejam servidos, garantindo que os usuários recebam as informações mais recentes.
+
+Cobrir Cenários de Cache Hit e Cache Miss:
+
+Regra: Teste tanto situações onde o cache já possui os dados (cache hit) quanto onde os dados precisam ser buscados novamente (cache miss).
+Razão: Verifica a eficácia do cache e garante que o sistema funcione corretamente em ambos os cenários.
+
+Testar a Expiração do Cache:
+
+Regra: Verifique se os dados no cache expiram corretamente de acordo com a política definida (TTL - Time to Live).
+Razão: Garante que os dados não sejam mantidos por mais tempo do que o necessário, evitando a entrega de informações desatualizadas.
+
+Simular Condições de Alta Carga:
+
+Regra: Teste o comportamento do cache sob condições de alta carga para verificar se ele lida bem com um grande volume de solicitações.
+Razão: Assegura que o cache possa ajudar a manter o desempenho do sistema sob pressão.
+
+Verificar Consistência e Integridade dos Dados:
+
+Regra: Garanta que os dados servidos pelo cache sejam consistentes e íntegros.
+Razão: Previne erros causados por dados corrompidos ou inconsistentes, assegurando a confiança dos usuários nos dados apresentados.
+
+Monitorar o Uso do Cache:
+
+Regra: Use ferramentas de monitoramento para analisar o desempenho do cache, incluindo taxas de hit/miss e tempo de resposta.
+Razão: Permite ajustar a configuração do cache para otimizar o desempenho e identificar problemas potenciais.
+
+Testar Políticas de Substituição:
+
+Regra: Verifique se as políticas de substituição de cache (como LRU - Least Recently Used) estão funcionando conforme esperado.
+Razão: Garante que o cache esteja utilizando as melhores práticas para manter dados relevantes e remover os irrelevantes.",,
+"13. Responda às perguntas sobre os protocolos HTTP e HTTPS:
+- Qual é a diferença entre HTTP e HTTPS? Quando você não deve usar HTTP?
+- Quais componentes compõem uma solicitação HTTP: para que cada um serve?
+- Quais métodos HTTP você conhece? Para que eles servem? Dê exemplos de aplicação de diferentes métodos.
+- O que é um código de resposta HTTP? Quais códigos existem?",,
+"*Diferença entre HTTP e HTTPS
+
+HTTP (HyperText Transfer Protocol):
+
+Protocolo: Protocolo de comunicação usado para a transferência de documentos hipertextos, como páginas web.
+Segurança: Não é seguro; os dados são transferidos em texto claro, o que significa que podem ser interceptados e lidos por terceiros.
+Porta Padrão: Usa a porta 80 por padrão.
+
+HTTPS (HyperText Transfer Protocol Secure):
+
+Protocolo: É a versão segura do HTTP, usando SSL/TLS para criptografar a comunicação entre o cliente e o servidor.
+Segurança: Proporciona confidencialidade, integridade e autenticação dos dados transmitidos, protegendo-os contra interceptações e ataques man-in-the-middle.
+Porta Padrão: Usa a porta 443 por padrão.
+
+*Quando não usar HTTP:
+
+Dados Sensíveis: Nunca use HTTP para transmitir informações sensíveis, como senhas, dados de cartão de crédito, ou informações pessoais.
+
+Autenticação: Evite HTTP em páginas que requerem login ou autenticação, para proteger as credenciais dos usuários.
+
+Conformidade: Para conformidade com normas de segurança e proteção de dados (como GDPR, HIPAA), HTTPS é obrigatório.
+
+*Componentes de uma Solicitação HTTP
+
+Linha de Requisição:
+
+Método HTTP: Define a ação a ser realizada (GET, POST, etc.).
+URL: Especifica o recurso solicitado.
+Versão do Protocolo: Indica a versão do HTTP (por exemplo, HTTP/1.1).
+Exemplo: GET /index.html HTTP/1.1
+
+Cabeçalhos (Headers):
+
+Host: Especifica o domínio do servidor (Host: www.exemplo.com).
+User-Agent: Informa sobre o cliente que está fazendo a requisição (User-Agent: Mozilla/5.0).
+Accept: Especifica os tipos de mídia que o cliente aceita (Accept: text/html).
+Content-Type: Define o tipo de mídia do corpo da requisição (em requisições POST ou PUT).
+
+Corpo da Requisição (Body):
+
+Dados: Contém dados enviados pelo cliente ao servidor, utilizado principalmente em métodos POST e PUT.
+
+*Métodos HTTP e Seus Usos
+
+GET:
+
+Uso: Solicita um recurso do servidor.
+Exemplo: Recuperar uma página web (GET /index.html).
+
+POST:
+
+Uso: Envia dados ao servidor para criar ou atualizar um recurso.
+Exemplo: Submissão de um formulário de login (POST /login).
+
+PUT:
+
+Uso: Substitui um recurso existente ou cria um novo se não existir.
+Exemplo: Atualizar informações de um usuário (PUT /users/123).
+
+DELETE:
+
+Uso: Remove um recurso especificado.
+Exemplo: Deletar um usuário (DELETE /users/123).
+
+HEAD:
+
+Uso: Solicita os cabeçalhos de resposta, sem o corpo da resposta.
+Exemplo: Verificar se um recurso existe (HEAD /index.html).
+
+OPTIONS:
+
+Uso: Descreve as opções de comunicação disponíveis para o recurso.
+Exemplo: Verificar métodos suportados (OPTIONS /users).
+
+PATCH:
+
+Uso: Aplica modificações parciais a um recurso.
+Exemplo: Atualizar parcialmente as informações de um usuário (PATCH /users/123).
+
+*Código de Resposta HTTP
+
+Código de resposta HTTP são códigos de status retornados pelo servidor para indicar o resultado de uma solicitação HTTP. Eles são divididos em cinco classes:
+
+1xx (Informacional): Indica que a solicitação foi recebida e o processo continua.
+
+Exemplo: 100 Continue
+
+2xx (Sucesso): Indica que a solicitação foi recebida, entendida e aceita.
+
+Exemplo: 200 OK, 201 Created
+
+3xx (Redirecionamento): Indica que a ação precisa ser redirecionada para outro recurso.
+
+Exemplo: 301 Moved Permanently, 302 Found
+
+4xx (Erro do Cliente): Indica que houve um erro na solicitação feita pelo cliente.
+
+Exemplo: 400 Bad Request, 401 Unauthorized, 404 Not Found
+
+5xx (Erro do Servidor): Indica que o servidor falhou ao processar uma solicitação válida.
+
+Exemplo: 500 Internal Server Error, 503 Service Unavailable",,
+14. Descreva os componentes que podem compor uma URL. Pelo que ele é responsável?,,
+"Componentes de uma URL
+
+Esquema (Scheme)
+
+Responsabilidade: Indica o protocolo a ser usado para acessar o recurso. Comummente usado para especificar se a conexão deve ser segura (HTTPS) ou não segura (HTTP).
+Exemplo: https, http, ftp, mailto
+Formato: https://
+
+Credenciais de Usuário (User Information)
+
+Responsabilidade: (Opcional) Pode incluir um nome de usuário e senha para autenticação em servidores protegidos.
+Exemplo: username:password@
+Formato: username:password@ (geralmente não recomendado por razões de segurança)
+
+Host
+
+Responsabilidade: Especifica o domínio ou endereço IP do servidor onde o recurso está localizado.
+Exemplo: www.google.com, 192.168.0.1
+Formato: www.google.com
+
+Porta (Port)
+
+Responsabilidade: (Opcional) Especifica a porta do servidor que deve ser usada para acessar o recurso. Se omitida, as portas padrão são usadas (80 para HTTP, 443 para HTTPS).
+Exemplo: :80, :443
+Formato: :443
+
+Caminho (Path)
+
+Responsabilidade: Especifica a localização exata do recurso no servidor. Pode representar um diretório ou um arquivo.
+Exemplo: /search, /images/photo.jpg
+Formato: /search
+
+Query
+
+Responsabilidade: (Opcional) Inclui parâmetros de consulta para fornecer informações adicionais ao servidor. É composto por pares chave-valor.
+Exemplo: ?q=search+term&lang=en
+Formato: ?q=search+term&lang=en
+
+Fragmento (Fragment)
+
+Responsabilidade: (Opcional) Aponta para uma seção específica dentro do recurso. É geralmente usado para navegação dentro da mesma página HTML.
+Exemplo: #section2
+Formato: #section2
+
+Responsabilidades de Cada Componente
+
+Esquema: Define o protocolo de comunicação e a forma como os dados são transferidos.
+
+Credenciais de Usuário: Proporciona autenticação para acessar recursos protegidos.
+
+Host: Identifica o servidor que hospeda o recurso.
+
+Porta: Especifica a porta de rede para conectar ao servidor.
+
+Caminho: Direciona para a localização do recurso no servidor.
+
+Query: Envia parâmetros adicionais para a requisição, permitindo filtrar ou detalhar a busca.
+
+Fragmento: Navega para uma parte específica do documento ou recurso.",,
+15. Que tipos de aplicativos móveis existem? Qual a diferença de cada um?,,
+"Os aplicativos móveis podem ser categorizados em três principais tipos: aplicativos nativos, aplicativos web e aplicativos híbridos. Cada tipo possui características distintas, vantagens e desvantagens. Aqui está uma descrição detalhada de cada um:
+
+1. Aplicativos Nativos
+
+Descrição:
+
+Desenvolvimento: Feitos especificamente para um sistema operacional (OS) móvel, como iOS ou Android.
+
+Linguagens de Programação:
+iOS: Swift, Objective-C
+Android: Kotlin, Java
+
+Distribuição: Disponíveis nas lojas de aplicativos, como Apple App Store e Google Play Store.
+
+Características:
+
+Desempenho: Alto desempenho e velocidade devido à otimização para o sistema operacional específico.
+Acesso ao Hardware: Acesso completo aos recursos do dispositivo, como câmera, GPS, acelerômetro, microfone, etc.
+Interface do Usuário: Melhor integração com a interface e experiência do usuário nativa do OS.
+
+Vantagens:
+
+Melhor desempenho e experiência do usuário.
+Acesso total aos recursos e funcionalidades do dispositivo.
+Maior segurança devido às plataformas de distribuição (lojas de aplicativos).
+
+Desvantagens:
+
+Desenvolvimento e manutenção mais caros e demorados, pois precisam ser desenvolvidos separadamente para cada plataforma.
+Atualizações devem ser enviadas para as lojas de aplicativos e aprovadas antes de serem disponibilizadas.
+
+2. Aplicativos Web
+
+Descrição:
+
+Desenvolvimento: Aplicações baseadas em navegador que funcionam em qualquer dispositivo com um navegador web.
+
+Linguagens de Programação: HTML, CSS, JavaScript.
+
+Distribuição: Acessíveis via URL e não precisam ser instalados.
+
+Características:
+
+Compatibilidade: Funciona em qualquer dispositivo com um navegador, independente do sistema operacional.
+Acesso Limitado ao Hardware: Acesso limitado aos recursos do dispositivo em comparação com aplicativos nativos.
+Atualizações: Atualizações instantâneas, sem necessidade de aprovação de lojas de aplicativos.
+
+Vantagens:
+
+Desenvolvimento mais barato e rápido.
+Funciona em qualquer dispositivo com um navegador.
+Atualizações são imediatas e não requerem aprovação das lojas de aplicativos.
+
+Desvantagens:
+
+Desempenho inferior em comparação com aplicativos nativos.
+Acesso limitado aos recursos do dispositivo.
+Experiência do usuário menos integrada com o sistema operacional.
+
+3. Aplicativos Híbridos
+
+Descrição:
+
+Desenvolvimento: Combinação de tecnologias web e nativas. Aplicações web envoltas em um contêiner nativo.
+
+Linguagens de Programação: HTML, CSS, JavaScript, e frameworks como React Native, Flutter, Ionic, PhoneGap.
+
+Distribuição: Disponíveis nas lojas de aplicativos, como Apple App Store e Google Play Store.
+
+Características:
+
+Compatibilidade: Pode funcionar em múltiplas plataformas com um único código base.
+Desempenho: Melhor que os aplicativos web, mas geralmente inferior aos nativos.
+Acesso ao Hardware: Acesso a muitos recursos do dispositivo através de plugins e APIs.
+
+Vantagens:
+
+Desenvolvimento mais rápido e custo reduzido em comparação com aplicativos nativos, devido a um único código base para várias plataformas.
+Melhor desempenho em comparação com aplicativos web.
+Acesso a muitos recursos do dispositivo.
+
+Desvantagens:
+
+Desempenho geralmente inferior aos aplicativos nativos.
+Pode não ter acesso a todos os recursos do dispositivo como aplicativos nativos.
+Pode enfrentar desafios de integração com novas versões dos sistemas operacionais.",,
+16. Qual a diferença entre um emulador e um dispositivo real? Descreva resumidamente as desvantagens e vantagens destes ao testar.,,
+"Diferença entre Emulador e Dispositivo Real
+
+Emulador:
+
+Descrição: Um software que simula um dispositivo móvel em um ambiente de computador, permitindo que os desenvolvedores e testadores executem e testem aplicativos móveis sem precisar de um dispositivo físico.
+Como Funciona: Recria o hardware e o sistema operacional do dispositivo móvel no software, proporcionando uma representação virtual do dispositivo.
+
+Dispositivo Real:
+
+Descrição: Um dispositivo físico, como um smartphone ou tablet, usado para testar aplicativos móveis diretamente no hardware real.
+Como Funciona: Utiliza o hardware e o sistema operacional reais do dispositivo para executar e testar aplicativos.
+
+Vantagens e Desvantagens de Emuladores
+
+Vantagens:
+
+Custo-efetivo: Não é necessário adquirir múltiplos dispositivos físicos para testar diferentes versões de hardware e software.
+Acessibilidade: Facilmente acessível para desenvolvedores, permitindo testes rápidos e convenientes.
+Variedade de Dispositivos: Simula uma ampla gama de dispositivos e versões de sistemas operacionais, permitindo testes em diferentes ambientes.
+Depuração: Ferramentas de depuração integradas que facilitam a identificação e correção de bugs.
+
+Desvantagens:
+
+Desempenho: Não replica com precisão o desempenho de um dispositivo real, especialmente em termos de CPU, GPU e consumo de memória.
+Recursos Limitados: Alguns recursos do hardware, como sensores, câmeras e GPS, podem não ser perfeitamente emulados.
+Diferenças de Comportamento: Pode haver diferenças sutis no comportamento do aplicativo em um emulador em comparação com um dispositivo real.
+Latência de Rede: Não pode simular com precisão todas as condições de rede, como flutuações de latência e velocidade de conexão.
+
+Vantagens e Desvantagens de Dispositivos Reais
+
+Vantagens:
+
+Precisão: Fornece resultados de teste mais precisos e realistas, replicando fielmente a experiência do usuário final.
+Desempenho Real: Avalia o desempenho real do aplicativo, incluindo tempos de resposta, consumo de bateria e uso de recursos.
+Acesso Completo ao Hardware: Permite testar todos os recursos de hardware, incluindo sensores, câmeras, GPS, etc.
+Condições Reais de Rede: Pode testar o aplicativo sob condições reais de rede, incluindo diferentes velocidades e tipos de conexão.
+
+Desvantagens:
+
+Custo: Adquirir e manter múltiplos dispositivos para testar diferentes versões de hardware e sistemas operacionais pode ser caro.
+Logística: Gerenciar e manter uma coleção de dispositivos físicos pode ser desafiador e demorado.
+Acessibilidade: Pode ser menos acessível para desenvolvedores e testadores remotos, exigindo presença física para testes.
+Ciclo de Desenvolvimento: Testes podem ser mais lentos devido ao tempo necessário para instalar, configurar e executar testes em dispositivos reais.",,
+"17. Verifique se há erros no JSON
+Se houver, anexe a versão correta do arquivo.",,
+,,
+Link para a ilustração:,,
+https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/qa-final-project/US/7.1.1.png,,
+"Embora o JSON fornecido esteja tecnicamente correto, há algumas boas práticas que podem ser seguidas para melhorar a legibilidade e manutenção:
+
+Consistência em Perguntas/Respostas:
+
+Considerando que há uma chave com um ponto de interrogação ""Black and white printing?"", é melhor evitar caracteres especiais em chaves para manter a consistência e evitar possíveis problemas de análise.
+
+JSON Corrigido (Apenas Melhorias, Sem Erros de Sintaxe Inicialmente)
+
+------------------------------------------
+{
+  ""Menu"": {
+    ""id"": ""1"",
+    ""value"": ""File"",
+    ""list"": {
+      ""items"": {
+        ""new_doc"": {
+          ""value"": ""New"",
+          ""onclick"": ""create_new_doc""
+        },
+        ""open_doc"": {
+          ""value"": ""Open..."",
+          ""onclick"": ""open_doc""
+        },
+        ""save_doc"": {
+          ""value"": ""Save"",
+          ""onclick"": ""save_doc""
+        },
+        ""save_as_doc"": {
+          ""value"": ""Save as..."",
+          ""onclick"": ""save_as_doc""
+        },
+        ""print_option"": {
+          ""value"": ""Print Options"",
+          ""onclick"": {
+            ""show_print_option"": {
+              ""Color"": ""Saturated"",
+              ""Black and white printing"": """",
+              ""Print Size"": ""A4""
+            }
+          }
+        }
+      }
+    }
+  }
+}
+------------------------------------------.",,
+18. O que é um banco de dados relacional? Como ele difere de um não relacional?,,
+"Banco de Dados Relacional
+
+Um banco de dados relacional é um tipo de banco de dados que organiza dados em tabelas, que podem ser relacionadas entre si. Cada tabela é composta por linhas (registros) e colunas (campos), e cada tabela possui uma chave primária que identifica unicamente cada registro. Relacionamentos entre tabelas são estabelecidos por meio de chaves estrangeiras.
+
+Banco de Dados Não Relacional
+
+Um banco de dados não relacional, também conhecido como NoSQL (Not Only SQL), é projetado para armazenar, recuperar e gerenciar dados de maneiras que não utilizam o esquema de tabelas tradicional dos bancos de dados relacionais. Existem vários tipos de bancos de dados NoSQL, cada um otimizado para diferentes tipos de carga de trabalho.
+
+Comparação: Relacional vs Não Relacional
+
+Característica                        Banco de Dados Relacional                                     Banco de Dados Não Relacional
+Estrutura de Dados                 Tabelas (linhas e colunas)                                          Varia (documentos, chave-valor, colunas, grafos)
+Esquema                                 Rígido, pré-definido                                                    Flexível, dinâmico
+Linguagem de Consulta          SQL                                                                             Varia (depende do tipo de NoSQL)
+Relacionamentos                    Chaves primárias e estrangeiras                                Embutidos nos dados (ex: documentos, grafos)
+Integridade Referencial           Forte, com restrições e validações                             Geralmente fraca ou inexistente
+Escalabilidade                         Vertical (adicionar recursos ao mesmo servidor)        Horizontal (distribuir dados em múltiplos servidores)
+Uso Típico                               Transações complexas, consistência, integridad        Grandes volumes de dados, flexibilidade, alta performance
+",,
+19. Escreva quais tipos de JOIN existem. Qual é a característica de cada um?,,
+"No SQL, os JOINs são usados para combinar registros de duas ou mais tabelas em um banco de dados relacional. Existem vários tipos de JOINs, cada um com características específicas e usos apropriados. Aqui estão os tipos principais de JOINs e suas características:
+
+1. INNER JOIN
+
+INNER JOIN retorna apenas os registros que têm valores correspondentes nas duas tabelas. Se não houver correspondência entre as tabelas, o registro não será incluído no resultado.
+
+Sintaxe:
+
+SELECT columns
+FROM table1
+INNER JOIN table2
+ON table1.column = table2.column;
+
+Característica:
+
+Retorna apenas as linhas que têm correspondências em ambas as tabelas.
+
+2. LEFT JOIN (ou LEFT OUTER JOIN)
+
+LEFT JOIN retorna todos os registros da tabela à esquerda (primeira tabela), e os registros correspondentes da tabela à direita (segunda tabela). Se não houver correspondência, o resultado ainda incluirá os registros da tabela à esquerda, mas com valores NULL para as colunas da tabela à direita.
+
+Sintaxe:
+
+SELECT columns
+FROM table1
+LEFT JOIN table2
+ON table1.column = table2.column;
+
+Característica:
+
+Retorna todos os registros da tabela à esquerda e os correspondentes da tabela à direita. Registros da tabela à esquerda sem correspondência na tabela à direita terão valores NULL.
+
+3. RIGHT JOIN (ou RIGHT OUTER JOIN)
+
+RIGHT JOIN é o oposto do LEFT JOIN. Ele retorna todos os registros da tabela à direita (segunda tabela), e os registros correspondentes da tabela à esquerda (primeira tabela). Se não houver correspondência, o resultado ainda incluirá os registros da tabela à direita, mas com valores NULL para as colunas da tabela à esquerda.
+
+Sintaxe:
+
+SELECT columns
+FROM table1
+RIGHT JOIN table2
+ON table1.column = table2.column;
+
+Característica:
+
+Retorna todos os registros da tabela à direita e os correspondentes da tabela à esquerda. Registros da tabela à direita sem correspondência na tabela à esquerda terão valores NULL.
+
+4. FULL JOIN (ou FULL OUTER JOIN)
+
+FULL JOIN retorna todos os registros quando há uma correspondência em uma das tabelas. Ele combina os resultados de LEFT JOIN e RIGHT JOIN. Se não houver correspondência, o resultado incluirá os registros com valores NULL nas colunas da tabela que não possui correspondência.
+
+Sintaxe:
+
+SELECT columns
+FROM table1
+FULL JOIN table2
+ON table1.column = table2.column;
+
+Característica:
+
+Retorna todos os registros quando há uma correspondência em uma das tabelas. Inclui registros sem correspondência em ambas as tabelas com valores NULL.
+
+5. CROSS JOIN
+
+CROSS JOIN retorna o produto cartesiano das duas tabelas. Cada linha da primeira tabela é combinada com todas as linhas da segunda tabela.
+
+Sintaxe:
+
+SELECT columns
+FROM table1
+CROSS JOIN table2;
+
+Característica:
+
+Retorna todas as combinações possíveis de registros entre as duas tabelas.
+
+6. SELF JOIN
+
+SELF JOIN é um join de uma tabela consigo mesma. Ele é usado para comparar linhas dentro da mesma tabela.
+
+Sintaxe:
+
+SELECT a.columns, b.columns
+FROM table a
+INNER JOIN table b
+ON a.column = b.column;
+
+Característica:
+
+Útil para comparar registros dentro da mesma tabela.",,
+"Dados de origem para as tarefas abaixo
+
+Você está testando um serviço que entrega comida em 30 minutos. É uma pequena inicialização por enquanto, então você está trabalhando apenas com quatro tabelas:
+
+Orders - todos os pedidos entregues
+ORDERS_ID — ID dos pedidos, int
+USER_ID—ID dos usuários, int
+EMPLOYEE_ID — ID dos funcionários, int
+DELIVERY_TIME — tempo de entrega em minutos, int
+ITENS — lista de itens, char
+
+Users - usuários
+USER_ID—ID dos usuários, int
+FULL_NAME — nome completo do usuário, char
+PHONE — número de telefone do usuário, char
+ADDRESS — endereço do usuário, char
+
+Employees - funcionários
+EMPLOYEE_ID — ID do funcionário, int
+FIRST_NAME — primeiro nome do funcionário, char
+LAST_NAME — sobrenome do funcionário, char
+PHONE — número de telefone do funcionário, char
+JOB_ID — ID da especialização, int
+
+Jobs - tipos de trabalho no serviço
+JOB_ID — ID da especialização, int
+JOB_TYPE — tipo da especialização, char
+HOURS — número de horas de trabalho por semana, int
+SALARY — o salário de um funcionário com a especialização fornecida em ---, int",,
+,,
+Link para a ilustração:,,
+https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/qa-final-project/US/7.1.1.2.png?etag=ada7cdcd281a6997ea8d44e2b4a69204,,
+,,
+"20. O serviço de suporte tem recebido muitas reclamações de que encomendas com arroz demoram uma hora a ser entregues, embora o serviço prometa entregar em 30 minutos.
+
+Verifique se os entregadores estão realmente atrasados. Selecione todos os pedidos que tenham pelo menos um item, ""arroz"", e um tempo de entrega superior a 30 minutos. A tabela resultante deve ter IDs de pedido e IDs de entregador.
+
+Anexe a solicitação SQL na resposta.",,
+"A consulta SQL necessária é:
+
+SELECT ORDERS_ID, EMPLOYEE_ID
+FROM Orders
+WHERE ITENS LIKE '%arroz%'
+AND DELIVERY_TIME > 30;
+",,
+"21. O gerente sugeriu adicionar uma nova funcionalidade ao produto: monitoramento que mostra os clientes mais ativos durante todo o tempo de operação da empresa.
+
+Certifique-se de que a lista de usuários seja exibida corretamente. Nesta fase de desenvolvimento, basta verificar apenas os IDs dos clientes.
+
+Escolha os cinco clientes mais ativos por número de pedidos. 
+
+Emita o ID de cada usuário e o número de pedidos na tabela resultante. 
+
+Classifique os dados em ordem decrescente pelo número de pedidos, e selecione os cinco clientes mais ativos.
+
+Anexe a solicitação SQL na resposta.",,
+"A consulta SQL necessária é:
+
+SELECT USER_ID, COUNT(ORDERS_ID) AS num_pedidos
+FROM Orders
+GROUP BY USER_ID
+ORDER BY num_pedidos DESC
+LIMIT 5;
+",,
+"22. Um relatório de bug veio do departamento de contabilidade: os salários dos funcionários foram calculados incorretamente. Descobriu-se que quase todos os erros nos cálculos estavam nas planilhas de cálculo dos gerentes.
+
+Faça uma lista de IDs de todos os funcionários que têm ""gerente"" em sua especialização com um salário de mais de US$ 70.000.
+
+Anexe a solicitação SQL na resposta.",,
+"A consulta SQL necessária é:
+
+SELECT e.EMPLOYEE_ID
+FROM Employees e
+JOIN Jobs j ON e.JOB_ID = j.JOB_ID
+WHERE j.JOB_TYPE LIKE '%gerente%'
+AND j.SALARY > 70000;",,
+"23. Examine três situações e responda à pergunta: vale a pena escrever testes automatizados neste caso? Explique sua resposta. 
+
+1) O projeto existe há muito tempo e muitos testes manuais foram escritos para ele.
+
+2) O projeto é temporário: dura apenas alguns meses.
+
+3) O projeto é instável: os recursos são frequentemente alterados.",,
+"1. O projeto existe há muito tempo e muitos testes manuais foram escritos para ele.
+
+Vale a pena escrever testes automatizados?
+
+Resposta: Sim, pode valer a pena, mas depende de alguns fatores.
+
+Explicação:
+
+Manutenção de Testes Manuais: Se o projeto é antigo e já possui muitos testes manuais, automatizar esses testes pode trazer benefícios significativos em termos de eficiência e cobertura. Testes manuais podem ser demorados e propensos a erros humanos, e a automação pode ajudar a acelerar o processo de testes e garantir a consistência.
+
+Custo e Benefício: A decisão de automatizar deve considerar o custo e o esforço de criar e manter os testes automatizados em comparação com o valor que isso agrega. Se o projeto está bem estabilizado e não deve sofrer grandes mudanças, a automação pode melhorar a qualidade e permitir uma execução mais frequente de testes.
+
+Recursos: Certifique-se de ter recursos e tempo para implementar e manter os testes automatizados. Se o projeto já tem um backlog significativo de manutenção de testes manuais, a automação pode justificar o esforço.
+
+2. O projeto é temporário: dura apenas alguns meses.
+
+Vale a pena escrever testes automatizados?
+
+Resposta: Em geral, não é recomendável investir pesadamente em testes automatizados para projetos temporários.
+
+Explicação:
+
+Retorno do Investimento: Para projetos de curto prazo, o custo e o tempo para configurar e manter testes automatizados podem não ser justificados. O esforço para escrever e manter testes automatizados pode superar os benefícios, especialmente se o projeto está previsto para ser concluído em poucos meses.
+
+Alternativas: Em vez de testes automatizados, pode ser mais prático realizar testes manuais ou usar técnicas de teste exploratório. A automação pode ser uma perda de tempo e recursos quando o projeto tem um ciclo de vida tão curto.
+
+3. O projeto é instável: os recursos são frequentemente alterados.
+
+Vale a pena escrever testes automatizados?
+
+Resposta: Em geral, não é o melhor momento para investir em testes automatizados, mas pode haver exceções.
+
+Explicação:
+
+Custo de Manutenção: Projetos instáveis que passam por alterações frequentes podem resultar em uma alta taxa de manutenção dos testes automatizados. Se os recursos e funcionalidades mudam constantemente, os testes automatizados precisarão ser frequentemente atualizados, o que pode se tornar um fardo.
+
+Decisão Dependente do Contexto: Se o projeto, apesar de ser instável, tem uma base crítica e é importante para o negócio, pode ser necessário investir em testes automatizados para garantir a qualidade do produto. 
+
+Nesses casos, a automação pode ser feita com uma abordagem mais focada, por exemplo, automatizando apenas testes de alta prioridade ou criando testes mais resilientes a mudanças.",,
