@@ -1,5 +1,5 @@
 # Bootcamp QA 💻💛🌻 
-<img src="![image](https://github.com/user-attachments/assets/9888543b-a0f6-46bf-8872-7c6f87c18220)'>
+<img src="![image](https://github.com/user-attachments/assets/a03092d5-9ecd-426a-9d1a-9bb8c2631cd4)">
 
 ####  :pushpin: Sprint 1 
 - *Noções básicas de teste*
