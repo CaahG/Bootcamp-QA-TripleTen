@@ -1,5 +1,6 @@
 # Bootcamp QA 💻💛🌻 
-<img src="![image](https://cdn.prod.website-files.com/6053a5b7250a503b3254324e/648879040555c5d274c473dd_logo-tripleten.svg))">
+<img src="https://ugc.production.linktr.ee/3PhHcrggTgCoNatKjvlo_tild3731-6537-4538-a162-623165633036__telegram-cloud-docum.jpg" alt="Imagem" />
+
 
 ####  :pushpin: Sprint 1 
 - *Noções básicas de teste*
