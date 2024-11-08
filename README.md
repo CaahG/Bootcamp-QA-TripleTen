@@ -1,5 +1,5 @@
 # Bootcamp QA :computer::fire: 
-<img src="Imagem\648879040555c5d274c473dd_logo-tripleten.svg">
+<img src="![image](https://github.com/user-attachments/assets/a1ad4d68-0afc-4a60-bad1-6afabf7f7500)">
 
 ####  :pushpin: Sprint 1 
 - *Noções básicas de teste*
