@@ -1,5 +1,5 @@
-# Bootcamp QA :computer::fire: 
-<img src="![image](https://github.com/user-attachments/assets/a1ad4d68-0afc-4a60-bad1-6afabf7f7500)">
+# Bootcamp QA 💻💛🌻 
+<img src="![image](file:///C:/Users/paulo/Downloads/Design%20sem%20nome.pdf)">
 
 ####  :pushpin: Sprint 1 
 - *Noções básicas de teste*
