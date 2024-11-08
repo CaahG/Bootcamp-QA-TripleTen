@@ -1,5 +1,5 @@
 # Bootcamp QA 💻💛🌻 
-<img src="file:///C:/Users/paulo/Downloads/Design%20sem%20nome.pdf">
+<img src="Imagem\648879040555c5d274c473dd_logo-tripleten.svg">
 
 ####  :pushpin: Sprint 1 
 - *Noções básicas de teste*
