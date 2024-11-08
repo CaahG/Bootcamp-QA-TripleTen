@@ -1,5 +1,5 @@
 # Bootcamp QA 💻💛🌻 
-<img src="![image](file:///C:/Users/paulo/Downloads/Design%20sem%20nome.pdf)">
+<img src="file:///C:/Users/paulo/Downloads/Design%20sem%20nome.pdf">
 
 ####  :pushpin: Sprint 1 
 - *Noções básicas de teste*
